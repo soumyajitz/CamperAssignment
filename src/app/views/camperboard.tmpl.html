@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h4>Leaderboard</h4></div>
+        <div class="panel-body">
+    <table class="table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Camper Name</th>
+                <th ng-click="camperVm.toggleSort('recent')">Points in the past 30 days <i class="fa fa-sort" aria-hidden="true"></i></th>
+                <th ng-click="camperVm.toggleSort('alltime')">All time points <i class="fa fa-sort" aria-hidden="true"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="camp in camperVm.camper | orderBy:camperVm.sorter.by:camperVm.sorter.reverse">
+                <td>{{$index+1}}</td>
+                <td><img ng-src="{{camp.img}}"> {{camp.username}}</td>
+                <td>{{camp.recent}}</td>
+                <td>{{camp.alltime}}</td>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+    </div>
+</div>
